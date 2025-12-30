@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubSafe | Stop Wasting Money. Take Control.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .grid-line {
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .shimmer-bg {
+            background: linear-gradient(110deg, #000 45%, #111 50%, #000 55%);
+            background-size: 200% 100%;
+            animation: shimmer 6s infinite linear;
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: -200% 0;
+            }
+        }
+
+        .card-hover:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-premium {
+            background: #fff;
+            color: #000;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .btn-premium:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Modal Style */
+        #modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+        }
+
+        .modal-content {
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            width: 90%;
+            margin: 12vh auto;
+            padding: 40px;
+        }
+
+        input:focus {
+            border-color: #fff !important;
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8">
+
+    <div id="modal" onclick="closeModal()" class="reveal">
+        <div class="modal-content text-left grid-line" onclick="event.stopPropagation()">
+            <h3 id="modal-title" class="text-3xl font-black mb-6 uppercase tracking-tighter italic shimmer-text">
+                PROTOCOL</h3>
+            <div id="modal-text"
+                class="text-zinc-400 text-sm leading-relaxed space-y-4 uppercase font-bold tracking-widest">
+            </div>
+            <button onclick="closeModal()"
+                class="mt-10 text-[10px] font-bold tracking-[0.5em] uppercase text-white/30 hover:text-white transition-colors">Close
+                Vault Session</button>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid-line min-h-screen flex flex-col">
+
+        <nav
+            class="flex justify-between items-center p-6 border-b grid-line sticky top-0 bg-black/80 backdrop-blur-md z-50">
+            <div class="text-xl font-black tracking-tighter uppercase cursor-pointer">SubSafe<span
+                    class="text-zinc-500">Labs</span></div>
+            <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+                <button onclick="openModal('protocol')" class="hover:text-white transition-colors">Architecture</button>
+                <button onclick="openModal('security')" class="hover:text-white transition-colors">Security</button>
+                <span class="hidden md:block border-l grid-line pl-8 text-white font-black">V1.0 LIVE NODE</span>
+            </div>
+        </nav>
+
+        <section class="flex flex-col items-center justify-center text-center py-32 px-6 border-b grid-line shimmer-bg">
+            <div
+                class="mb-6 px-4 py-1 border grid-line rounded-full text-[9px] font-bold tracking-[0.3em] text-zinc-500 uppercase">
+                Stop Wasting Money // Jan 06 Deployment
+            </div>
+            <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.9]">
+                EMPOWERING <br> FINANCIAL <br> SOVEREIGNTY.
+            </h1>
+            <p class="text-zinc-500 max-w-3xl text-lg md:text-xl font-medium mb-12 uppercase tracking-wide">
+                Your privacy is not our business. It’s our foundation. <br>
+                100% Offline. No Bank Credentials. No Account Needed.
+            </p>
+
+            <div class="grid grid-cols-4 gap-2 md:gap-4 mb-12 w-full max-w-lg">
+                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm"><span id="days"
+                        class="block text-2xl md:text-4xl font-black">00</span><span
+                        class="text-[8px] uppercase text-zinc-600 font-bold">Days</span></div>
+                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm"><span id="hours"
+                        class="block text-2xl md:text-4xl font-black">00</span><span
+                        class="text-[8px] uppercase text-zinc-600 font-bold">Hours</span></div>
+                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm"><span id="minutes"
+                        class="block text-2xl md:text-4xl font-black">00</span><span
+                        class="text-[8px] uppercase text-zinc-600 font-bold">Mins</span></div>
+                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm border-white/40"><span id="seconds"
+                        class="block text-2xl md:text-4xl font-black text-white">00</span><span
+                        class="text-[8px] uppercase text-zinc-600 font-bold text-white/50">Secs</span></div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 border-b grid-line">
+            <div class="p-12 border-b md:border-b-0 md:border-r grid-line card-hover transition-all">
+                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Module 01</div>
+                <h3 class="text-xl font-black mb-4 uppercase">100% Offline Vault</h3>
+                <p class="text-zinc-500 text-[10px] leading-relaxed tracking-widest uppercase font-bold">
+                    No bank synchronization required. All data is stored locally on your device. You are in full control
+                    of your silicon.
+                </p>
+            </div>
+            <div class="p-12 border-b md:border-b-0 md:border-r grid-line card-hover transition-all">
+                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Module 02</div>
+                <h3 class="text-xl font-black mb-4 uppercase">Smart Alert Engine</h3>
+                <p class="text-zinc-500 text-[10px] leading-relaxed tracking-widest uppercase font-bold">
+                    Never miss a payment. Receive precision notifications before billing dates to cancel unwanted
+                    subscriptions.
+                </p>
+            </div>
+            <div class="p-12 card-hover transition-all">
+                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Module 03</div>
+                <h3 class="text-xl font-black mb-4 uppercase">Global Analytics</h3>
+                <p class="text-zinc-500 text-[10px] leading-relaxed tracking-widest uppercase font-bold">
+                    Multi-currency support for USD, EUR, and TRY. Analyze monthly and yearly spending at a glance.
+                </p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 border-b grid-line">
+            <div class="p-12 border-b md:border-b-0 md:border-r grid-line bg-zinc-900/20">
+                <h4 class="text-xs font-black mb-8 uppercase tracking-[0.5em] text-white/30">Philosophy</h4>
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4 text-sm font-black uppercase tracking-tighter italic">
+                        <span class="w-2 h-2 bg-white"></span> No Ads, Pure Experience
+                    </li>
+                    <li
+                        class="flex items-center gap-4 text-sm font-black uppercase tracking-tighter italic text-zinc-500">
+                        <span class="w-2 h-2 bg-zinc-800"></span> No Server Uploads
+                    </li>
+                    <li
+                        class="flex items-center gap-4 text-sm font-black uppercase tracking-tighter italic text-zinc-500">
+                        <span class="w-2 h-2 bg-zinc-800"></span> No Surprise Bills
+                    </li>
+                </ul>
+            </div>
+            <div class="p-12 flex flex-col justify-center">
+                <p class="text-zinc-500 text-xs leading-relaxed tracking-[0.2em] uppercase font-bold mb-6">
+                    "Do you know exactly how much you spend on streaming services, software, and memberships every
+                    month?"
+                </p>
+                <div class="text-sm font-black uppercase italic">SubSafe. The simplest way to track recurring expenses.
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 px-6 flex flex-col items-center text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter italic">Join the Private Beta
+            </h2>
+
+            <form action="https://formspree.io/f/mqekvlnw" method="POST"
+                class="flex flex-col md:flex-row gap-4 w-full max-w-xl">
+                <input type="email" name="email" required placeholder="ENTER SECURE EMAIL"
+                    class="flex-grow bg-transparent border grid-line px-6 py-4 outline-none transition-all text-xs tracking-widest font-bold">
+                <button type="submit"
+                    class="btn-premium px-12 py-4 font-black uppercase text-[10px] tracking-widest">Request
+                    Access</button>
+            </form>
+
+            <p class="mt-8 text-[9px] text-zinc-700 tracking-[0.5em] font-bold uppercase">Restricted access for early
+                adopters only</p>
+        </section>
+
+        <footer class="mt-auto border-t grid-line p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">© 2026 SubSafe Labs. All Rights
+                Reserved.</div>
+            <div class="flex gap-8 text-[10px] text-zinc-500 font-bold uppercase tracking-widest">
+                <a href="https://www.linkedin.com/company/subsafe-labs" target="_blank"
+                    class="hover:text-white transition-colors">LinkedIn</a>
+                <span class="text-zinc-800 cursor-default">Instagram (Soon)</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Modal Content based on Play Store Details
+        const modalContent = {
+            protocol: {
+                title: "Local Protocol",
+                text: "SubSafe operates on a 100% offline local ledger. We utilize on-device SQLite encryption. No bank credentials, no cloud handshakes, no data leaks. Your financial life remains on your hardware."
+            },
+            security: {
+                title: "Security Layers",
+                text: "No account creation needed. We prioritize privacy by eliminating the server-side attack vector entirely. SubSafeSpeak is built for full English and Turkish support with multi-currency tracking (USD, EUR, TRY)."
+            }
+        };
+
+        function openModal(type) {
+            document.getElementById('modal-title').innerText = modalContent[type].title;
+            document.getElementById('modal-text').innerText = modalContent[type].text;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Countdown Logic
+        const target = new Date("Jan 6, 2026 00:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
