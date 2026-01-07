@@ -36,15 +36,16 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        .btn-premium {
+        .btn-download {
             background: #fff;
             color: #000;
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0 0 0px rgba(255, 255, 255, 0);
         }
 
-        .btn-premium:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
         /* Modal Style */
@@ -65,25 +66,19 @@
             margin: 12vh auto;
             padding: 40px;
         }
-
-        input:focus {
-            border-color: #fff !important;
-        }
     </style>
 </head>
 
 <body class="p-4 md:p-8">
 
-    <div id="modal" onclick="closeModal()" class="reveal">
+    <div id="modal" onclick="closeModal()">
         <div class="modal-content text-left grid-line" onclick="event.stopPropagation()">
-            <h3 id="modal-title" class="text-3xl font-black mb-6 uppercase tracking-tighter italic shimmer-text">
-                PROTOCOL</h3>
+            <h3 id="modal-title" class="text-3xl font-black mb-6 uppercase tracking-tighter italic">TITLE</h3>
             <div id="modal-text"
-                class="text-zinc-400 text-sm leading-relaxed space-y-4 uppercase font-bold tracking-widest">
-            </div>
+                class="text-zinc-400 text-sm leading-relaxed space-y-4 uppercase font-bold tracking-widest"></div>
             <button onclick="closeModal()"
                 class="mt-10 text-[10px] font-bold tracking-[0.5em] uppercase text-white/30 hover:text-white transition-colors">Close
-                Vault Session</button>
+                Vault</button>
         </div>
     </div>
 
@@ -93,133 +88,124 @@
             class="flex justify-between items-center p-6 border-b grid-line sticky top-0 bg-black/80 backdrop-blur-md z-50">
             <div class="text-xl font-black tracking-tighter uppercase cursor-pointer">SubSafe<span
                     class="text-zinc-500">Labs</span></div>
-            <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                <button onclick="openModal('protocol')" class="hover:text-white transition-colors">Architecture</button>
+            <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-400 items-center">
+                <button onclick="openModal('protocol')" class="hover:text-white transition-colors">Protocol</button>
                 <button onclick="openModal('security')" class="hover:text-white transition-colors">Security</button>
-                <span class="hidden md:block border-l grid-line pl-8 text-white font-black">V1.0 LIVE NODE</span>
+                <a href="https://play.google.com/store/apps/details?id=com.emirucgun.subsafe"
+                    class="hidden md:block bg-white text-black px-4 py-2 rounded-sm font-black text-[9px]">DOWNLOAD
+                    NOW</a>
             </div>
         </nav>
 
         <section class="flex flex-col items-center justify-center text-center py-32 px-6 border-b grid-line shimmer-bg">
             <div
-                class="mb-6 px-4 py-1 border grid-line rounded-full text-[9px] font-bold tracking-[0.3em] text-zinc-500 uppercase">
-                Stop Wasting Money // Jan 06 Deployment
+                class="mb-6 px-4 py-1 border border-green-500/30 bg-green-500/5 rounded-full text-[9px] font-bold tracking-[0.3em] text-green-400 uppercase animate-pulse">
+                System Status: Live on Play Store
             </div>
             <h1 class="text-5xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.9]">
                 EMPOWERING <br> FINANCIAL <br> SOVEREIGNTY.
             </h1>
             <p class="text-zinc-500 max-w-3xl text-lg md:text-xl font-medium mb-12 uppercase tracking-wide">
-                Your privacy is not our business. It’s our foundation. <br>
-                100% Offline. No Bank Credentials. No Account Needed.
+                Stop wasting money on forgotten subscriptions. <br>
+                100% Offline. No Bank Credentials. No Account Required.
             </p>
 
-            <div class="grid grid-cols-4 gap-2 md:gap-4 mb-12 w-full max-w-lg">
-                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm"><span id="days"
-                        class="block text-2xl md:text-4xl font-black">00</span><span
-                        class="text-[8px] uppercase text-zinc-600 font-bold">Days</span></div>
-                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm"><span id="hours"
-                        class="block text-2xl md:text-4xl font-black">00</span><span
-                        class="text-[8px] uppercase text-zinc-600 font-bold">Hours</span></div>
-                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm"><span id="minutes"
-                        class="block text-2xl md:text-4xl font-black">00</span><span
-                        class="text-[8px] uppercase text-zinc-600 font-bold">Mins</span></div>
-                <div class="bg-zinc-900/50 border grid-line p-4 rounded-sm border-white/40"><span id="seconds"
-                        class="block text-2xl md:text-4xl font-black text-white">00</span><span
-                        class="text-[8px] uppercase text-zinc-600 font-bold text-white/50">Secs</span></div>
+            <div class="flex flex-col items-center gap-6">
+                <a href="https://play.google.com/store/apps/details?id=com.emirucgun.subsafe" target="_blank"
+                    class="btn-download px-16 py-6 font-black uppercase text-xs tracking-[0.3em] rounded-sm flex items-center gap-4">
+                    Get it on Play Store
+                </a>
+                <span class="text-[9px] text-zinc-600 font-bold tracking-widest uppercase">Version 1.0.0 Now
+                    Available</span>
             </div>
         </section>
 
         <section class="grid grid-cols-1 md:grid-cols-3 border-b grid-line">
             <div class="p-12 border-b md:border-b-0 md:border-r grid-line card-hover transition-all">
-                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Module 01</div>
-                <h3 class="text-xl font-black mb-4 uppercase">100% Offline Vault</h3>
+                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Feature 01</div>
+                <h3 class="text-xl font-black mb-4 uppercase">Zero-Cloud Security</h3>
                 <p class="text-zinc-500 text-[10px] leading-relaxed tracking-widest uppercase font-bold">
-                    No bank synchronization required. All data is stored locally on your device. You are in full control
-                    of your silicon.
+                    All data is stored locally on your device. We don't ask for your bank credentials. Your privacy is
+                    our priority.
                 </p>
             </div>
             <div class="p-12 border-b md:border-b-0 md:border-r grid-line card-hover transition-all">
-                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Module 02</div>
-                <h3 class="text-xl font-black mb-4 uppercase">Smart Alert Engine</h3>
+                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Feature 02</div>
+                <h3 class="text-xl font-black mb-4 uppercase text-white">Smart Alerts</h3>
                 <p class="text-zinc-500 text-[10px] leading-relaxed tracking-widest uppercase font-bold">
-                    Never miss a payment. Receive precision notifications before billing dates to cancel unwanted
-                    subscriptions.
+                    Never miss a payment again. SubSafe notifies you before your billing date, so you can cancel before
+                    getting charged.
                 </p>
             </div>
             <div class="p-12 card-hover transition-all">
-                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Module 03</div>
-                <h3 class="text-xl font-black mb-4 uppercase">Global Analytics</h3>
+                <div class="text-xs font-black text-zinc-700 mb-6 uppercase tracking-widest">Feature 03</div>
+                <h3 class="text-xl font-black mb-4 uppercase">Analytics Suite</h3>
                 <p class="text-zinc-500 text-[10px] leading-relaxed tracking-widest uppercase font-bold">
-                    Multi-currency support for USD, EUR, and TRY. Analyze monthly and yearly spending at a glance.
+                    Track expenses in USD, EUR, or TRY. Monthly and yearly spending overviews to help you budget better.
                 </p>
             </div>
         </section>
 
         <section class="grid grid-cols-1 md:grid-cols-2 border-b grid-line">
             <div class="p-12 border-b md:border-b-0 md:border-r grid-line bg-zinc-900/20">
-                <h4 class="text-xs font-black mb-8 uppercase tracking-[0.5em] text-white/30">Philosophy</h4>
+                <h4 class="text-xs font-black mb-8 uppercase tracking-[0.5em] text-white/30">The Clean Promise</h4>
                 <ul class="space-y-6">
                     <li class="flex items-center gap-4 text-sm font-black uppercase tracking-tighter italic">
-                        <span class="w-2 h-2 bg-white"></span> No Ads, Pure Experience
+                        <span class="w-2 h-2 bg-white"></span> No Ads (Clean experience)
                     </li>
                     <li
                         class="flex items-center gap-4 text-sm font-black uppercase tracking-tighter italic text-zinc-500">
-                        <span class="w-2 h-2 bg-zinc-800"></span> No Server Uploads
+                        <span class="w-2 h-2 bg-zinc-800"></span> No Server Uploads (Privacy first)
                     </li>
                     <li
                         class="flex items-center gap-4 text-sm font-black uppercase tracking-tighter italic text-zinc-500">
-                        <span class="w-2 h-2 bg-zinc-800"></span> No Surprise Bills
+                        <span class="w-2 h-2 bg-zinc-800"></span> No Surprise Bills (Stay notified)
                     </li>
                 </ul>
             </div>
             <div class="p-12 flex flex-col justify-center">
                 <p class="text-zinc-500 text-xs leading-relaxed tracking-[0.2em] uppercase font-bold mb-6">
-                    "Do you know exactly how much you spend on streaming services, software, and memberships every
-                    month?"
+                    Take control of your financial life today.
                 </p>
-                <div class="text-sm font-black uppercase italic">SubSafe. The simplest way to track recurring expenses.
+                <div class="text-2xl font-black uppercase italic tracking-tighter">Download SubSafe and start saving.
                 </div>
             </div>
         </section>
 
         <section class="py-32 px-6 flex flex-col items-center text-center">
-            <h2 class="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter italic">Join the Private Beta
-            </h2>
+            <h2 class="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter italic">Stay Updated</h2>
+            <p class="text-zinc-600 text-[10px] font-bold tracking-[0.4em] uppercase mb-12">Subscribe for future
+                protocol patches</p>
 
             <form action="https://formspree.io/f/mqekvlnw" method="POST"
                 class="flex flex-col md:flex-row gap-4 w-full max-w-xl">
-                <input type="email" name="email" required placeholder="ENTER SECURE EMAIL"
+                <input type="email" name="email" required placeholder="ENTER EMAIL ADDRESS"
                     class="flex-grow bg-transparent border grid-line px-6 py-4 outline-none transition-all text-xs tracking-widest font-bold">
                 <button type="submit"
-                    class="btn-premium px-12 py-4 font-black uppercase text-[10px] tracking-widest">Request
-                    Access</button>
+                    class="btn-download px-12 py-4 font-black uppercase text-[10px] tracking-widest">Subscribe</button>
             </form>
-
-            <p class="mt-8 text-[9px] text-zinc-700 tracking-[0.5em] font-bold uppercase">Restricted access for early
-                adopters only</p>
         </section>
 
         <footer class="mt-auto border-t grid-line p-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">© 2026 SubSafe Labs. All Rights
-                Reserved.</div>
+            <div class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">© 2026 SubSafe Labs. Local-First
+                Engineering.</div>
             <div class="flex gap-8 text-[10px] text-zinc-500 font-bold uppercase tracking-widest">
                 <a href="https://www.linkedin.com/company/subsafe-labs" target="_blank"
                     class="hover:text-white transition-colors">LinkedIn</a>
-                <span class="text-zinc-800 cursor-default">Instagram (Soon)</span>
+                <span class="text-zinc-800">Instagram (Coming Soon)</span>
             </div>
         </footer>
     </div>
 
     <script>
-        // Modal Content based on Play Store Details
         const modalContent = {
             protocol: {
-                title: "Local Protocol",
-                text: "SubSafe operates on a 100% offline local ledger. We utilize on-device SQLite encryption. No bank credentials, no cloud handshakes, no data leaks. Your financial life remains on your hardware."
+                title: "Local-First Architecture",
+                text: "SubSafe is built on the 'Metal-First' philosophy. Your financial data is stored in an encrypted local database on your device. We do not use external cloud handlers, ensuring that even if the internet goes down, your vault stays accessible and secure."
             },
             security: {
-                title: "Security Layers",
-                text: "No account creation needed. We prioritize privacy by eliminating the server-side attack vector entirely. SubSafeSpeak is built for full English and Turkish support with multi-currency tracking (USD, EUR, TRY)."
+                title: "Encryption Layers",
+                text: "We utilize on-device SQLite encryption. By removing the need for bank credentials and server-side accounts, we eliminate 100% of common cloud-based attack vectors. Your phone is the only key to your data."
             }
         };
 
@@ -232,19 +218,6 @@
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
-
-        // Countdown Logic
-        const target = new Date("Jan 6, 2026 00:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
-            }
-        }, 1000);
     </script>
 </body>
 
